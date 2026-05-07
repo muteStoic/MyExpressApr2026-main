@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const methodOverride = require('method-override');
 const cors = require('cors');
 const corsOptions = {
     origin: ['https://localhost:3000'], //allowed origins
@@ -12,7 +13,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 app.engine('ejs', require('ejs').__express);
